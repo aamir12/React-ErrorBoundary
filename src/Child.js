@@ -17,13 +17,16 @@ export default function Child() {
   };
 
   //Asynchronous code (e.g. setTimeout or requestAnimationFrame callbacks)
+  //but it can be resolve by try catch block
   const fetchData = useCallback(async () => {
+    //change url
     const response = await fetch(
       "https://jsonplaceholder.typicode.com/users-err/1"
     );
 
     const responseData = await response.json();
     if (responseData.user.id) {
+      //generate here
       console.log("do something");
       setData(responseData);
     }
